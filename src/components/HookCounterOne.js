@@ -1,16 +1,16 @@
 import React, {useState,useEffect} from 'react'
 
-function HookCounter() {    
+function HookCounterOne() {    
   const [count,setCount] = useState (0)
   const [name,setName] = useState ('')
 
-    useEffect(() => {
-      console.log(object)
+    useEffect(() => {       
       document.title = `you clicked ${count} times`
-    })
+      console.log('useeffect - updating document title')
+    },[count])
   return (
     <div>
-        <input type='text' value={name} onChange={(e.target.value)}></input>
+        <input type='text' value={name} onChange={e => setName(e.target.value)}></input>
         <button onClick={() => setCount(count + 1)}>
             count {count} times
         </button>
@@ -18,4 +18,4 @@ function HookCounter() {
   )
 }
 
-export default HookCounter
+export default HookCounterOne
